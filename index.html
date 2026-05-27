@@ -1,0 +1,869 @@
+Here is an HTML document that creates a distinct Japanese heritage / raw denim e-commerce page with a completely different name and visual identity.
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="indigo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KATA · Japanese denim · slow craft</title>
+  <!-- Typography: elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f6f4f0;
+      --surface: #ffffff;
+      --surface-elevated: #faf8f4;
+      --text: #1a1a1a;
+      --text-soft: #5e5b55;
+      --text-muted: #c5c0b5;
+      --accent: #1b4d6e;
+      --accent-glow: #2a6c8f;
+      --accent-deep: #0e3a54;
+      --accent-subtle: #e8ece8;
+      --border-light: #e2ddd4;
+      --shadow-sm: 0 8px 24px -6px rgba(0,0,0,0.05);
+      --shadow-lg: 0 28px 40px -12px rgba(0,0,0,0.12);
+      --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      --radius-card: 8px;
+    }
+
+    [data-theme="indigo-dark"] {
+      --bg: #1a1a1a;
+      --surface: #222222;
+      --surface-elevated: #2a2a2a;
+      --text: #e8e4dd;
+      --text-soft: #a8a39a;
+      --text-muted: #4a4742;
+      --accent: #3a7ca5;
+      --accent-glow: #5a9cbe;
+      --accent-deep: #2a5c7e;
+      --accent-subtle: #2a3538;
+      --border-light: #3a3732;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--surface-elevated); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+    /* header — zen */
+    .kata-header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(246, 244, 240, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--accent-subtle);
+      transition: var(--transition);
+    }
+    [data-theme="indigo-dark"] .kata-header {
+      background: rgba(26, 26, 26, 0.96);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .brand {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--accent);
+    }
+    .brand span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+    }
+    .nav-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a::after {
+      content: '・';
+      margin-left: 5px;
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .nav-links a:hover::after { opacity: 1; }
+
+    .utility-actions {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+    }
+    #themeToggle {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--text);
+      transition: 0.2s;
+    }
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cart-icon:hover { color: var(--accent); }
+    .cart-count {
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.55rem;
+      font-weight: 600;
+      border-radius: 20px;
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -8px;
+      right: -14px;
+    }
+
+    /* hero — indigo dye */
+    .hero-kata {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1582719500968-0ba74a5d918e?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: 50% 30%;
+    }
+    .hero-kata::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(95deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 70%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      padding: 0 6%;
+    }
+    .hero-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--accent-glow);
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 4px;
+    }
+    .hero-main-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(4rem, 12vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      color: #f5f0e8;
+      letter-spacing: -1px;
+    }
+    .hero-offer {
+      font-size: 0.7rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 4px;
+      border-left: 2px solid var(--accent-glow);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      padding: 0.85rem 2.4rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .btn-primary:hover {
+      background: var(--accent-deep);
+      transform: translateY(-2px);
+    }
+
+    .collection-badge {
+      max-width: 1400px;
+      margin: 4rem auto 1rem auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--accent-subtle);
+      padding-bottom: 0.8rem;
+    }
+    .collection-badge h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+    }
+    .collection-badge p {
+      color: var(--accent);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+    }
+
+    /* product grid — artisanal */
+    .grid-shop {
+      max-width: 1400px;
+      margin: 2rem auto 5rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-tile {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+    .product-tile:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent);}
+    .tile-img {
+      position: relative;
+      aspect-ratio: 1 / 1.3;
+      overflow: hidden;
+      background: var(--surface-elevated);
+    }
+    .tile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-tile:hover .tile-img img { transform: scale(1.04); }
+    .quick-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      padding: 1rem;
+      opacity: 0;
+      transition: 0.25s;
+      text-align: center;
+    }
+    .product-tile:hover .quick-add { opacity: 1; }
+    .quick-add button {
+      background: var(--accent);
+      border: none;
+      width: 85%;
+      padding: 0.7rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #fff;
+    }
+    .quick-add button:hover { background: var(--accent-deep); }
+    .product-info {
+      padding: 1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-details h4 {
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+    .product-details h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+    .price-block { text-align: right; }
+    .current-price { font-weight: 600; font-size: 1rem; }
+    .old-price { font-size: 0.7rem; text-decoration: line-through; color: var(--text-muted); margin-left: 0.3rem; }
+
+    /* CART SIDEBAR — loom */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(14px);
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s ease;
+    }
+    .cart-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 500px;
+      height: 100vh;
+      background: var(--surface);
+      border-left: 1px solid var(--accent);
+      box-shadow: var(--shadow-lg);
+      z-index: 2001;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px 0 0 12px;
+    }
+    .cart-overlay.active .cart-sidebar {
+      transform: translateX(0);
+    }
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .close-cart:hover { color: var(--accent); }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.8rem;
+      background: var(--surface-elevated);
+      border-radius: 8px;
+      position: relative;
+      border: 0.5px solid var(--accent-subtle);
+    }
+    .cart-item-img {
+      width: 70px;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .cart-item-price {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .quantity-btn {
+      background: var(--accent-subtle);
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .quantity-btn:hover { background: var(--accent); color: #fff; }
+    .remove-item {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .remove-item:hover { color: var(--accent);}
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--accent);
+      background: var(--surface);
+      border-radius: 0 0 0 12px;
+    }
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: var(--accent);
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #fff;
+    }
+    .checkout-btn:hover { background: var(--accent-deep); }
+    .empty-cart {
+      text-align: center;
+      color: var(--text-soft);
+      padding: 2rem;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      background: var(--surface-elevated);
+      margin-top: 2rem;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .footer-locations {
+      font-size: 0.55rem;
+      letter-spacing: 3px;
+      color: var(--text-soft);
+      margin: 0.8rem 0 1rem;
+    }
+
+    @media (max-width: 780px) {
+      .nav-container { flex-direction: column; padding: 0.7rem; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      .grid-shop { gap: 1.2rem; }
+      .cart-sidebar { max-width: 100%; border-radius: 16px 0 0 16px; }
+    }
+
+    /* MODAL — kata entrance */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.96);
+      backdrop-filter: blur(24px);
+      transition: opacity 0.25s ease;
+    }
+    .kata-modal {
+      background: var(--surface);
+      max-width: 540px;
+      width: 100%;
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 2.2rem 1.8rem 2.6rem;
+      position: relative;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-close-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1.4rem;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .modal-icon-badge {
+      width: 70px;
+      height: 70px;
+      background: rgba(27, 77, 110, 0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .modal-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+    .modal-description {
+      color: var(--text-soft);
+      line-height: 1.5;
+      font-size: 0.8rem;
+      margin: 0.8rem 0;
+    }
+    .modal-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .btn-modal-primary {
+      background: var(--accent);
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .btn-modal-secondary {
+      background: transparent;
+      border: 1px solid var(--accent);
+      padding: 0.75rem 1.8rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.7rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .modal-fade-out { opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBJZ7C7VV0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SBJZ7C7VV0');
+  </script>
+</head>
+<body>
+
+<!-- ENTRY MODAL - KATA INVITATION -->
+<div id="entryModal" class="modal-overlay">
+  <div class="kata-modal">
+    <button id="closeModalBtn" class="modal-close-icon"><i class="fa-regular fa-sun"></i></button>
+    <div class="modal-icon-badge"><i class="fas fa-water"></i></div>
+    <h2 class="modal-title">KATA</h2>
+    <p class="modal-description">Japanese denim & slow craft. Raw selvedge, indigo dye, and garments that age with you. Enter the tradition.</p>
+    <div class="modal-buttons">
+      <button id="enterBtn" class="btn-modal-primary">ENTER KATA</button>
+      <button id="laterBtn" class="btn-modal-secondary">WANDER LATER</button>
+    </div>
+  </div>
+</div>
+
+<header class="kata-header">
+  <div class="nav-container">
+    <div class="brand">KATA<span> · denim</span></div>
+    <nav class="nav-links">
+      <a href="#shop">SELVEDGE</a>
+      <a href="#shop">INDIGO</a>
+      <a href="#shop">KIMONO</a>
+      <a href="#">KATA</a>
+    </nav>
+    <div class="utility-actions">
+      <button id="themeToggle">🌙</button>
+      <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-fish"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero-kata">
+    <div class="hero-content">
+      <div class="hero-sub">SELVEDGE · INDIGO · SLOW CRAFT</div>
+      <h1 class="hero-main-title">KATA</h1>
+      <div class="hero-offer">First wear: <strong>15% off</strong> your first selvedge garment</div>
+      <a href="#shop" class="btn-primary">ENTER KATA →</a>
+    </div>
+  </section>
+
+  <div class="collection-badge" id="shop">
+    <h2>Raw Denim Collection · Indigo Dye</h2>
+    <p>12 kata garments</p>
+  </div>
+
+  <div class="grid-shop" id="productGrid"></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">KATA</div>
+    <div class="footer-locations">Kojima · Osaka · Tokyo · Okayama</div>
+    <p class="copyright" style="font-size:0.55rem; opacity:0.7;">© 2026 KATA — the art of fade.</p>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-sidebar">
+    <div class="cart-header">
+      <h3>KATA LOOM</h3>
+      <button class="close-cart" id="closeCartBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <div class="empty-cart">The loom awaits.<br>Add selvedge garments.</div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total">
+        <span>Total (USD)</span>
+        <span id="cartTotalPrice">$0</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">⛩ KATA CHECKOUT ⛩</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // KATA COLLECTION — Japanese denim, raw selvedge, artisanal indigo
+  const products = [
+    { id: 1, name: "Selvedge Straight Jean", category: "DENIM", original: 278, discountPrice: 236, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1374&auto=format&fit=crop", alt: "selvedge jean" },
+    { id: 2, name: "Indigo Kimono Jacket", category: "OUTER", original: 248, discountPrice: 210, img: "https://images.unsplash.com/photo-1598032895397-b9472444bf53?q=80&w=1465&auto=format&fit=crop", alt: "kimono jacket" },
+    { id: 3, name: "Raw Denim Type II", category: "DENIM", original: 298, discountPrice: 253, img: "https://images.unsplash.com/photo-1556909114-44e313bd20c9?q=80&w=1374&auto=format&fit=crop", alt: "type ii jacket" },
+    { id: 4, name: "Sashiko Work Pant", category: "BOTTOMS", original: 198, discountPrice: 168, img: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=1374&auto=format&fit=crop", alt: "sashiko pant" },
+    { id: 5, name: "Hemp Blend Tee", category: "TOPS", original: 68, discountPrice: 58, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1480&auto=format&fit=crop", alt: "hemp tee" },
+    { id: 6, name: "Noragi Jacket", category: "OUTER", original: 188, discountPrice: 160, img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1376&auto=format&fit=crop", alt: "noragi" },
+    { id: 7, name: "Canvas Apron", category: "ACCESS", original: 88, discountPrice: 75, img: "https://images.unsplash.com/photo-1584132915807-fd1f8fbc6a0b?q=80&w=1287&auto=format&fit=crop", alt: "apron" },
+    { id: 8, name: "Indigo Bandana", category: "ACCESS", original: 38, discountPrice: 32, img: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=1374&auto=format&fit=crop", alt: "bandana" },
+    { id: 9, name: "Leather Belt (Bridle)", category: "ACCESS", original: 78, discountPrice: 66, img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1470&auto=format&fit=crop", alt: "belt" },
+    { id: 10, name: "Sashiko Vest", category: "LAYERS", original: 168, discountPrice: 142, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1336&auto=format&fit=crop", alt: "sashiko vest" },
+    { id: 11, name: "Wool Socks (3pk)", category: "ACCESS", original: 32, discountPrice: 27, img: "https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?q=80&w=1374&auto=format&fit=crop", alt: "socks" },
+    { id: 12, name: "Selvedge Chino", category: "BOTTOMS", original: 188, discountPrice: 160, img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1480&auto=format&fit=crop", alt: "chino" }
+  ];
+
+  let cart = [];
+
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartIcon = document.getElementById('cartIcon');
+  const closeCartBtn = document.getElementById('closeCartBtn');
+  const cartItemsContainer = document.getElementById('cartItemsContainer');
+  const cartFooter = document.getElementById('cartFooter');
+  const cartTotalPriceSpan = document.getElementById('cartTotalPrice');
+  const cartCountSpan = document.getElementById('cartCount');
+
+  function saveCart() { localStorage.setItem('KATA_Cart', JSON.stringify(cart)); }
+  function loadCart() {
+    const saved = localStorage.getItem('KATA_Cart');
+    if (saved) { cart = JSON.parse(saved); }
+    renderCartUI();
+    updateCartCount();
+  }
+  function updateCartCount() { cartCountSpan.innerText = cart.reduce((sum,i)=>sum+i.quantity,0); }
+
+  function renderCartUI() {
+    if (!cartItemsContainer) return;
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<div class="empty-cart">The loom awaits.<br>Add selvedge garments.</div>';
+      cartFooter.style.display = 'none';
+      updateCartCount(); saveCart(); return;
+    }
+    cartFooter.style.display = 'block';
+    let html = ''; let total = 0;
+    cart.forEach(item => {
+      total += item.price * item.quantity;
+      html += `<div class="cart-item" data-id="${item.id}">
+          <img class="cart-item-img" src="${item.img}" alt="${item.name}">
+          <div class="cart-item-details">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+            <div class="cart-item-quantity">
+              <button class="quantity-btn dec-qty" data-id="${item.id}">-</button>
+              <span class="cart-item-qty">${item.quantity}</span>
+              <button class="quantity-btn inc-qty" data-id="${item.id}">+</button>
+            </div>
+          </div>
+          <button class="remove-item" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+        </div>`;
+    });
+    cartItemsContainer.innerHTML = html;
+    cartTotalPriceSpan.innerText = `$${total.toLocaleString()}`;
+    document.querySelectorAll('.dec-qty').forEach(btn => btn.addEventListener('click', () => updateQuantity(parseInt(btn.dataset.id), -1)));
+    document.querySelectorAll('.inc-qty').forEach(btn => btn.addEventListener('click', () => updateQuantity(parseInt(btn.dataset.id), 1)));
+    document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id))));
+    updateCartCount(); saveCart();
+  }
+  function updateQuantity(pid, delta) {
+    const idx = cart.findIndex(i=>i.id===pid);
+    if(idx!==-1){
+      const nq = cart[idx].quantity+delta;
+      if(nq<=0) cart.splice(idx,1);
+      else cart[idx].quantity = nq;
+      renderCartUI();
+    }
+  }
+  function removeFromCart(pid){ cart = cart.filter(i=>i.id!==pid); renderCartUI(); }
+  function addToCart(pid){
+    const prod = products.find(p=>p.id===pid);
+    if(!prod) return;
+    const existing = cart.find(i=>i.id===pid);
+    if(existing) existing.quantity+=1;
+    else cart.push({id:prod.id, name:prod.name, price:prod.discountPrice, quantity:1, img:prod.img});
+    renderCartUI();
+    const btn = document.querySelector(`.add-btn-${pid}`);
+    if(btn){ let old = btn.innerText; btn.innerText="✓ KATA"; setTimeout(()=>btn.innerText=old,700);}
+    cartOverlay.classList.add('active');
+  }
+
+  function renderProducts() {
+    const container = document.getElementById('productGrid');
+    if(!container) return;
+    container.innerHTML='';
+    products.forEach(p=>{
+      const disc = Math.round(((p.original-p.discountPrice)/p.original)*100);
+      const card=document.createElement('div');
+      card.className='product-tile';
+      card.innerHTML=`
+        <div class="tile-img">
+          <img src="${p.img}" alt="${p.alt||p.name}" loading="lazy">
+          <div class="quick-add"><button class="add-btn-${p.id} add-to-cart-btn" data-id="${p.id}">⛩ ADD TO KATA</button></div>
+        </div>
+        <div class="product-info">
+          <div class="product-details"><h4>${p.category}</h4><h3>${p.name}</h3></div>
+          <div class="price-block"><span class="current-price">$${p.discountPrice.toLocaleString()}</span><span class="old-price">$${p.original.toLocaleString()}</span><span style="font-size:0.55rem;color:var(--accent);display:block;text-align:right;">-${disc}%</span></div>
+        </div>`;
+      container.appendChild(card);
+    });
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn=>btn.addEventListener('click',(e)=>{e.preventDefault(); addToCart(parseInt(btn.dataset.id));}));
+  }
+
+  // theme
+  function initTheme(){
+    const stored = localStorage.getItem('KATA_theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let theme = stored || (systemDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'indigo-dark' : 'indigo');
+    const toggle = document.getElementById('themeToggle');
+    if(toggle) toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+  function toggleThemeUI(){
+    const curr = document.documentElement.getAttribute('data-theme');
+    const next = curr === 'indigo-dark' ? 'indigo' : 'indigo-dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('KATA_theme', next === 'indigo-dark' ? 'dark' : 'light');
+    const toggleBtn = document.getElementById('themeToggle');
+    if(toggleBtn) toggleBtn.textContent = next === 'indigo-dark' ? '☀️' : '🌙';
+  }
+
+  // modal entry
+  const modalDiv = document.getElementById('entryModal');
+  const enterBtn = document.getElementById('enterBtn'), laterBtn = document.getElementById('laterBtn'), closeModalBtn = document.getElementById('closeModalBtn');
+  function closeModalFunc(){ if(modalDiv){ modalDiv.classList.add('modal-fade-out'); setTimeout(()=>modalDiv.style.display='none',200); } }
+  if(enterBtn) enterBtn.addEventListener('click',closeModalFunc);
+  if(laterBtn) laterBtn.addEventListener('click',closeModalFunc);
+  if(closeModalBtn) closeModalBtn.addEventListener('click',closeModalFunc);
+  if(modalDiv) modalDiv.addEventListener('click',(e)=>{ if(e.target===modalDiv) closeModalFunc(); });
+
+  // cart events
+  cartIcon?.addEventListener('click',()=>cartOverlay.classList.add('active'));
+  closeCartBtn?.addEventListener('click',()=>cartOverlay.classList.remove('active'));
+  cartOverlay?.addEventListener('click',(e)=>{ if(e.target===cartOverlay) cartOverlay.classList.remove('active'); });
+  document.getElementById('checkoutBtn')?.addEventListener('click',()=>{ alert('Thank you for entering KATA. Your selvedge garments will age beautifully with wear.'); cart=[]; renderCartUI(); cartOverlay.classList.remove('active'); });
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',function(e){ const t=this.getAttribute('href'); if(t==="#") return; const sec=document.querySelector(t); if(sec){ e.preventDefault(); sec.scrollIntoView({behavior:'smooth'}); } }); });
+
+  renderProducts();
+  initTheme();
+  loadCart();
+  document.getElementById('themeToggle')?.addEventListener('click', toggleThemeUI);
+</script>
+</body>
+</html>
+```
